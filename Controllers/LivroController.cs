@@ -1,38 +1,41 @@
-﻿
+﻿using GeekWebApi.Context;
 using GeekWebApi.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
-using System.Collections.Generic;
-using GeekWebApi.Context;
-using System.Xml.Linq;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GeekWebApi.Controllers
 {
-    [ApiController]    
-    [Route("controller/movies")]
-    public class FilmeController : ControllerBase
+    public class LivroController : Controller
     {
         private ILogger<FilmeController> _logger;
         private readonly GeekWebApiContext _context;
 
-        public FilmeController(ILogger<FilmeController> logger, GeekWebApiContext context)
+        public LivroController(ILogger<FilmeController> logger, GeekWebApiContext context)
         {
             _logger = logger;
             _context = context;
         }
 
+        [Authorize]
+        [HttpGet("GetAllBooks")]
+        public ActionResult<IEnumerable<Livro>> GetAllMoviesDB()
+        {
+            var allBooks = _context.Livros.ToList();
+            if (allBooks.Count == 0) return NotFound();
+
+            return Ok(allBooks);
+        }
+
+        /*
         [HttpGet("GetMoviesMarvel")]
-        public ActionResult<IEnumerable<Filme>> GetMoviesMarvel()
+        public ActionResult<IEnumerable<Livro>> GetMoviesMarvel()
         {
             _logger.LogInformation("GET /Filmes - Iniciando busca de todos os filmes cadastrados" + DateTime.Now);
             try
             {
-                var marvelMovies = _context.Filmes
-                    .Where(dc => dc.Empresa.ToLower()
+                var marvelMovies = _context.Livros
+                    .Where(dc => dc.Editora.ToLower()
                     .Contains("marvel")).ToList();
-
 
                 if (marvelMovies.Count == 0)
                 {
@@ -51,7 +54,7 @@ namespace GeekWebApi.Controllers
 
 
         [HttpGet("GetMoviesDC")]
-        public ActionResult<IEnumerable<Filme>> GetMoviesDc()
+        public ActionResult<IEnumerable<Livro>> GetMoviesDc()
         {
             _logger.LogInformation("GET /Filmes - Iniciando busca de todos os filmes cadastrados" + DateTime.Now);
             try
@@ -75,24 +78,17 @@ namespace GeekWebApi.Controllers
             }
         }
 
-        [HttpGet("GetAllMoviesDB")]
-        public ActionResult<IEnumerable<Filme>> GetAllMoviesDB()
-        {           
-            var allmovies = _context.Filmes.ToList();
-            if (allmovies.Count == 0) return NotFound();
-
-            return Ok(allmovies);
-        }
+        
 
         [HttpGet("GetMoviesByName")]
-        public ActionResult<IEnumerable<Filme>> GetMoviesByName(string name)
+        public ActionResult<IEnumerable<Livro>> GetMoviesByName(string name)
         {
             try
             {
                 var movies = _context.Filmes
                     .Where(m => m.Nome.ToLower().Contains(name.ToLower()));
 
-                if(movies == null) return NotFound();
+                if (movies == null) return NotFound();
 
                 return Ok(movies);
             }
@@ -104,7 +100,7 @@ namespace GeekWebApi.Controllers
 
         [Authorize]
         [HttpPost("PostMovies")]
-        public ActionResult<IEnumerable<Filme>> PostMovies(List<Filme> movies)
+        public ActionResult<IEnumerable<Livro>> PostMovies(List<Livro> movies)
         {
             try
             {
@@ -119,13 +115,13 @@ namespace GeekWebApi.Controllers
                     _logger.LogInformation($"POST /Filmes cadastrados com Sucesso");
                 }
 
-                return CreatedAtAction(nameof(GetAllMoviesDB), new {movies}, movies);
+                return CreatedAtAction(nameof(GetAllMoviesDB), new { movies }, movies);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "POST /Tarefa - Ocorreu um erro ao criar a tarefa");
                 return StatusCode(500);
             }
-        }
+        }*/
     }
 }
