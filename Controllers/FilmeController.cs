@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 namespace GeekWebApi.Controllers
 {
     [ApiController]    
-    [Route("[controller]")]
+    [Route("controller/movies")]
     public class FilmeController : ControllerBase
     {
         private ILogger<FilmeController> _logger;
