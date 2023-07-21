@@ -101,6 +101,9 @@ StyleCopReport.xml
 *.pidb
 *.svclog
 *.scc
+*.db-wal
+*.db-shm
+*.sqbpro
 
 # Chutzpah Test files
 _Chutzpah*
@@ -269,6 +272,9 @@ ServiceFabricBackup/
 *.mdf
 *.ldf
 *.ndf
+*.db-wal
+*.db-shm
+*.sqbpro
 
 # Business Intelligence projects
 *.rdl.data
