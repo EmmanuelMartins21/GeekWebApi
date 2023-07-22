@@ -2,12 +2,12 @@
 
 namespace GeekWebApi.Models
 {
-    public class Filme
+    public class Anime
     {
-        public Filme(string nome, string empresa, string genero, DateTime dataLancamento, float duracaoMinutos)
+        
+        public Anime(string nome, string genero, DateTime dataLancamento, float duracaoMinutos)
         {
             Nome = nome;
-            Empresa = empresa;
             Genero = genero;
             DataLancamento = dataLancamento;
             DuracaoMinutos = duracaoMinutos;
@@ -16,7 +16,7 @@ namespace GeekWebApi.Models
         [Key]
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Empresa { get; set; }
+
         public string Genero { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]

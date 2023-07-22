@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace GeekWebApi.Controllers
 {
+    [ApiController]
+    [Route("controller/books")]
     public class LivroController : Controller
     {
         private ILogger<FilmeController> _logger;
@@ -16,9 +18,8 @@ namespace GeekWebApi.Controllers
             _context = context;
         }
 
-        [Authorize]
-        [HttpGet("GetAllBooks")]
-        public ActionResult<IEnumerable<Livro>> GetAllMoviesDB()
+        [HttpGet("getallbooks")]
+        public ActionResult<IEnumerable<Livro>> GetAlBooks()
         {
             var allBooks = _context.Livros.ToList();
             if (allBooks.Count == 0) return NotFound();
@@ -26,66 +27,12 @@ namespace GeekWebApi.Controllers
             return Ok(allBooks);
         }
 
-        /*
-        [HttpGet("GetMoviesMarvel")]
-        public ActionResult<IEnumerable<Livro>> GetMoviesMarvel()
-        {
-            _logger.LogInformation("GET /Filmes - Iniciando busca de todos os filmes cadastrados" + DateTime.Now);
-            try
-            {
-                var marvelMovies = _context.Livros
-                    .Where(dc => dc.Editora.ToLower()
-                    .Contains("marvel")).ToList();
-
-                if (marvelMovies.Count == 0)
-                {
-                    _logger.LogInformation("GET /Filmes - Nenhum filme encontrado " + DateTime.Now);
-                    return NotFound();
-                }
-                _logger.LogInformation("GET /Filmes - Filmes localizados com sucesso " + DateTime.Now);
-                return marvelMovies;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "GET /Filmes - Ocorreu um erro ao buscar os filmes");
-                return StatusCode(500);
-            }
-        }
-
-
-        [HttpGet("GetMoviesDC")]
-        public ActionResult<IEnumerable<Livro>> GetMoviesDc()
-        {
-            _logger.LogInformation("GET /Filmes - Iniciando busca de todos os filmes cadastrados" + DateTime.Now);
-            try
-            {
-                var dcMovies = _context.Filmes
-                    .Where(dc => dc.Empresa.ToLower()
-                    .Contains("warner")).ToList();
-
-                if (dcMovies.Count == 0)
-                {
-                    _logger.LogInformation("GET /Filmes - Nenhum filme encontrado " + DateTime.Now);
-                    return NotFound();
-                }
-                _logger.LogInformation("GET /Filmes - Filmes localizados com sucesso " + DateTime.Now);
-                return dcMovies;
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "GET /Filmes - Ocorreu um erro ao buscar os filmes");
-                return StatusCode(500);
-            }
-        }
-
-        
-
-        [HttpGet("GetMoviesByName")]
-        public ActionResult<IEnumerable<Livro>> GetMoviesByName(string name)
+        [HttpGet("getbooksbyname")]
+        public ActionResult<IEnumerable<Filme>> GetBooksByName(string name)
         {
             try
             {
-                var movies = _context.Filmes
+                var movies = _context.Livros
                     .Where(m => m.Nome.ToLower().Contains(name.ToLower()));
 
                 if (movies == null) return NotFound();
@@ -98,30 +45,57 @@ namespace GeekWebApi.Controllers
             }
         }
 
-        [Authorize]
-        [HttpPost("PostMovies")]
-        public ActionResult<IEnumerable<Livro>> PostMovies(List<Livro> movies)
+        [HttpGet("getbooksbyeditora")]
+        public ActionResult<IEnumerable<Filme>> GetBooksByEditora(string editora)
         {
             try
             {
-                if (movies.Count > 0)
+                var movies = _context.Livros
+                    .Where(m => m.Editora.ToLower().Contains(editora.ToLower()));
+
+                if (movies == null) return NotFound();
+
+                return Ok(movies);
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        [Authorize]
+        [HttpPost("postbooks")]
+        public ActionResult<IEnumerable<Livro>> PostBooks(List<Livro> books)
+        {
+            try
+            {
+                if (books.Count > 0)
                 {
-                    foreach (var m in movies)
+                    var allBooks = _context.Livros.ToList();
+                    if (allBooks.Count != 0)
                     {
-                        _context.Filmes.Add(m);
-                        _context.SaveChanges();
+                        foreach (var b in books)
+                        {
+                            bool livroJaExiste = allBooks.Any(livro => livro.Nome == b.Nome);
+
+                            if (!livroJaExiste)
+                            {
+                                _context.Livros.Add(b);
+                                _context.SaveChanges();
+                            }
+                        }
                     }
 
-                    _logger.LogInformation($"POST /Filmes cadastrados com Sucesso");
+                    _logger.LogInformation($"POST /Livros cadastrados com Sucesso");
                 }
 
-                return CreatedAtAction(nameof(GetAllMoviesDB), new { movies }, movies);
+                return CreatedAtAction(nameof(GetAlBooks), new { books }, books);
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "POST /Tarefa - Ocorreu um erro ao criar a tarefa");
+                _logger.LogError(ex, "POST /Livro - Ocorreu um erro ao criar a tarefa");
                 return StatusCode(500);
             }
-        }*/
+        }
     }
 }

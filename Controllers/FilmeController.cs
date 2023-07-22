@@ -23,7 +23,7 @@ namespace GeekWebApi.Controllers
             _context = context;
         }
 
-        [HttpGet("GetMoviesMarvel")]
+        [HttpGet("getmoviesmarvel")]
         public ActionResult<IEnumerable<Filme>> GetMoviesMarvel()
         {
             _logger.LogInformation("GET /Filmes - Iniciando busca de todos os filmes cadastrados" + DateTime.Now);
@@ -50,7 +50,7 @@ namespace GeekWebApi.Controllers
         }
 
 
-        [HttpGet("GetMoviesDC")]
+        [HttpGet("getmoviesdc")]
         public ActionResult<IEnumerable<Filme>> GetMoviesDc()
         {
             _logger.LogInformation("GET /Filmes - Iniciando busca de todos os filmes cadastrados" + DateTime.Now);
@@ -75,7 +75,7 @@ namespace GeekWebApi.Controllers
             }
         }
 
-        [HttpGet("GetAllMoviesDB")]
+        [HttpGet("getallmovies")]
         public ActionResult<IEnumerable<Filme>> GetAllMoviesDB()
         {           
             var allmovies = _context.Filmes.ToList();
@@ -84,7 +84,7 @@ namespace GeekWebApi.Controllers
             return Ok(allmovies);
         }
 
-        [HttpGet("GetMoviesByName")]
+        [HttpGet("getmoviesbyname")]
         public ActionResult<IEnumerable<Filme>> GetMoviesByName(string name)
         {
             try
@@ -103,7 +103,7 @@ namespace GeekWebApi.Controllers
         }
 
         [Authorize]
-        [HttpPost("PostMovies")]
+        [HttpPost("postmovies")]
         public ActionResult<IEnumerable<Filme>> PostMovies(List<Filme> movies)
         {
             try
