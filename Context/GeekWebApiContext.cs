@@ -11,5 +11,7 @@ namespace GeekWebApi.Context
         public DbSet<Filme> Filmes { get; set; }
         public DbSet<Livro> Livros { get; set; }
         public DbSet<Serie> Series { get; set; }
+        public DbSet<Anime> Animes { get; set; }
+
     }
 }

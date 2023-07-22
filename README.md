@@ -23,7 +23,7 @@ Este endpoint retorna uma lista de Filmes Geek, contendo detalhes sobre cada um,
       "dataLancamento": "2022-03-04T00:00:00",
       "duracaoMinutos": 149
     },
-    // Outros filmes...
+   
   ]
 }
 ```
@@ -40,7 +40,11 @@ Este endpoint retorna uma lista de Livros Geek, incluindo detalhes como título,
 {
   "livros": [
     {
-      
+      "nome": "string",
+      "genero": "string",
+      "editora": "string",
+      "dataLancamento": "2023-07-22T15:58:55.739Z",
+      "paginas": 0
     }
    
   ]
@@ -59,7 +63,11 @@ Este endpoint retorna uma lista de Séries Geek, contendo informações como tí
 {
   "series": [
     {
-      
+       "nome": "string",
+       "empresa": "string",
+       "genero": "string",
+       "dataLancamento": "2023-07-22T15:57:28.147Z",
+       "duracaoMinutos": 0
     }
   ]
 }
