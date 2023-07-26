@@ -73,9 +73,28 @@ Este endpoint retorna uma lista de Séries Geek, contendo informações como tí
 }
 ```
 
+#### Endpoint: `/animes`
+
+Este endpoint retorna uma lista de Animes Geek.
+
+#### Exemplo de resposta:
+
+```json
+{
+  "animes": [
+    {
+      "nome": "String",
+      "genero": "String",
+      "dataLancamento": "2007-08-22T00:00:00Z",
+      "Temporadas": 0
+    }
+  ]
+}
+```
+
 ## Como usar a API
 
-Para utilizar a GeekWebApi, basta fazer uma requisição GET para o endpoint desejado. A resposta será retornada em formato JSON, contendo os dados requisitados sobre Filmes, Livros ou Séries Geek.
+Para utilizar a GeekWebApi, basta fazer uma requisição GET para o endpoint desejado. A resposta será retornada em formato JSON, contendo os dados requisitados sobre Filmes, Livros, Séries ou Animes Geek.
 
 ### Exemplo de requisição utilizando cURL:
 

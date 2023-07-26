@@ -2,6 +2,7 @@
 using GeekWebApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace GeekWebApi.Controllers
 {
@@ -20,16 +21,16 @@ namespace GeekWebApi.Controllers
 
 
         [HttpGet("getallseries")]
-        public ActionResult<IEnumerable<Livro>> GetAllSeries()
+        public ActionResult<IEnumerable<Serie>> GetAllSeries()
         {
-            var allBooks = _context.Series.ToList();
-            if (allBooks.Count == 0) return NotFound();
+            var allSeries = _context.Series.ToList();
+            if (allSeries.Count == 0) return NotFound();
 
-            return Ok(allBooks);
+            return Ok(allSeries);
         }
 
         [HttpGet("getseriesbyname")]
-        public ActionResult<IEnumerable<Filme>> GetSeriesByName(string name)
+        public ActionResult<IEnumerable<Serie>> GetSeriesByName(string name)
         {
             try
             {
@@ -47,7 +48,7 @@ namespace GeekWebApi.Controllers
         }
 
         [HttpGet("getbooksbyempresa")]
-        public ActionResult<IEnumerable<Filme>> GetBooksByEmpresa(string empresa)
+        public ActionResult<IEnumerable<Serie>> GetBooksByEmpresa(string empresa)
         {
             try
             {
@@ -61,6 +62,50 @@ namespace GeekWebApi.Controllers
             catch
             {
                 return NotFound();
+            }
+        }
+               
+
+        [Authorize]        
+        [HttpPost("postseries")]
+        public ActionResult<IEnumerable<Serie>> Postseries(List<Serie> series)
+        {
+            try
+            {
+                if (series.Count > 0)
+                {
+                    var allSeries = _context.Series.ToList();
+                    if (allSeries.Count != 0)
+                    {
+                        foreach (var s in series)
+                        {
+                            bool serieExist = allSeries.Any(series => series == s);
+
+                            if (!serieExist)
+                            {
+                                _context.Series.Add(s);
+                                _context.SaveChanges();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var s in series)
+                        {
+                            _context.Series.Add(s);
+                            _context.SaveChanges();
+                        }
+                    }
+                    _logger.LogInformation($"POST /Livros cadastrados com Sucesso");
+                    _context.SaveChanges();
+                }
+
+                return CreatedAtAction(nameof(GetAllSeries), new { series }, series);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "POST /Livro - Ocorreu um erro ao criar a tarefa");
+                return StatusCode(500);
             }
         }
     }

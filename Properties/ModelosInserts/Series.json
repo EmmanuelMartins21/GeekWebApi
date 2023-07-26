@@ -1,0 +1,359 @@
+[
+  {
+    "nome": "Stranger Things",
+    "empresa": "Netflix",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2016-07-15T00:00:00Z",
+    "temporadas": 4
+  },
+  {
+    "nome": "Game of Thrones",
+    "empresa": "HBO",
+    "genero": "Fantasia",
+    "dataLancamento": "2011-04-17T00:00:00Z",
+    "temporadas": 8
+  },
+  {
+    "nome": "The Mandalorian",
+    "empresa": "Disney+",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2019-11-12T00:00:00Z",
+    "temporadas": 2
+  },
+  {
+    "nome": "The Witcher",
+    "empresa": "Netflix",
+    "genero": "Fantasia",
+    "dataLancamento": "2019-12-20T00:00:00Z",
+    "temporadas": 2
+  },
+  {
+    "nome": "Doctor Who",
+    "empresa": "BBC",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2005-03-26T00:00:00Z",
+    "temporadas": 13
+  },
+  {
+    "nome": "The Big Bang Theory",
+    "empresa": "CBS",
+    "genero": "Comédia",
+    "dataLancamento": "2007-09-24T00:00:00Z",
+    "temporadas": 12
+  },
+  {
+    "nome": "Sherlock",
+    "empresa": "BBC",
+    "genero": "Mistério",
+    "dataLancamento": "2010-07-25T00:00:00Z",
+    "temporadas": 4
+  },
+  {
+    "nome": "Friends",
+    "empresa": "NBC",
+    "genero": "Comédia",
+    "dataLancamento": "1994-09-22T00:00:00Z",
+    "temporadas": 10
+  },
+  {
+    "nome": "The Office",
+    "empresa": "NBC",
+    "genero": "Comédia",
+    "dataLancamento": "2005-03-24T00:00:00Z",
+    "temporadas": 9
+  },
+  {
+    "nome": "Rick and Morty",
+    "empresa": "Adult Swim",
+    "genero": "Animação",
+    "dataLancamento": "2013-12-02T00:00:00Z",
+    "temporadas": 6
+  },
+  {
+    "nome": "Black Mirror",
+    "empresa": "Netflix",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2011-12-04T00:00:00Z",
+    "temporadas": 5
+  },
+  {
+    "nome": "Breaking Bad",
+    "empresa": "AMC",
+    "genero": "Drama",
+    "dataLancamento": "2008-01-20T00:00:00Z",
+    "temporadas": 5
+  },
+  {
+    "nome": "Westworld",
+    "empresa": "HBO",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2016-10-02T00:00:00Z",
+    "temporadas": 4
+  },
+  {
+    "nome": "Supernatural",
+    "empresa": "The CW",
+    "genero": "Fantasia",
+    "dataLancamento": "2005-09-13T00:00:00Z",
+    "temporadas": 15
+  },
+  {
+    "nome": "The Simpsons",
+    "empresa": "FOX",
+    "genero": "Animação",
+    "dataLancamento": "1989-12-17T00:00:00Z",
+    "temporadas": 32
+  },
+  {
+    "nome": "The Lord of the Rings",
+    "empresa": "Amazon Prime Video",
+    "genero": "Fantasia",
+    "dataLancamento": "2022-09-02T00:00:00Z",
+    "temporadas": 1
+  },
+  {
+    "nome": "The Expanse",
+    "empresa": "Amazon Prime Video",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2015-11-23T00:00:00Z",
+    "temporadas": 6
+  },
+  {
+    "nome": "Avatar: The Last Airbender",
+    "empresa": "Nickelodeon",
+    "genero": "Animação",
+    "dataLancamento": "2005-02-21T00:00:00Z",
+    "temporadas": 3
+  },
+  {
+    "nome": "Battlestar Galactica",
+    "empresa": "SyFy",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2004-12-08T00:00:00Z",
+    "temporadas": 4
+  },
+  {
+    "nome": "Futurama",
+    "empresa": "FOX",
+    "genero": "Animação",
+    "dataLancamento": "1999-03-28T00:00:00Z",
+    "temporadas": 7
+  },
+  {
+    "nome": "Firefly",
+    "empresa": "FOX",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2002-09-20T00:00:00Z",
+    "temporadas": 1
+  },
+  {
+    "nome": "The X-Files",
+    "empresa": "FOX",
+    "genero": "Ficção Científica",
+    "dataLancamento": "1993-09-10T00:00:00Z",
+    "temporadas": 11
+  },
+  {
+    "nome": "Doctor Who",
+    "empresa": "BBC",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2005-03-26T00:00:00Z",
+    "temporadas": 13
+  },
+  {
+    "nome": "Avatar: The Last Airbender",
+    "empresa": "Nickelodeon",
+    "genero": "Animação",
+    "dataLancamento": "2005-02-21T00:00:00Z",
+    "temporadas": 3
+  },
+  {
+    "nome": "The Twilight Zone",
+    "empresa": "CBS",
+    "genero": "Ficção Científica",
+    "dataLancamento": "1959-10-02T00:00:00Z",
+    "temporadas": 5
+  },
+  {
+    "nome": "Battlestar Galactica",
+    "empresa": "SyFy",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2004-12-08T00:00:00Z",
+    "temporadas": 4
+  },
+  {
+    "nome": "Futurama",
+    "empresa": "FOX",
+    "genero": "Animação",
+    "dataLancamento": "1999-03-28T00:00:00Z",
+    "temporadas": 7
+  },
+  {
+    "nome": "Firefly",
+    "empresa": "FOX",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2002-09-20T00:00:00Z",
+    "temporadas": 1
+  },
+  {
+    "nome": "The X-Files",
+    "empresa": "FOX",
+    "genero": "Ficção Científica",
+    "dataLancamento": "1993-09-10T00:00:00Z",
+    "temporadas": 11
+  },
+  {
+    "nome": "Doctor Who",
+    "empresa": "BBC",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2005-03-26T00:00:00Z",
+    "temporadas": 13
+  },
+  {
+    "nome": "Avatar: The Last Airbender",
+    "empresa": "Nickelodeon",
+    "genero": "Animação",
+    "dataLancamento": "2005-02-21T00:00:00Z",
+    "temporadas": 3
+  },
+  {
+    "nome": "The Twilight Zone",
+    "empresa": "CBS",
+    "genero": "Ficção Científica",
+    "dataLancamento": "1959-10-02T00:00:00Z",
+    "temporadas": 5
+  },
+  {
+    "nome": "Battlestar Galactica",
+    "empresa": "SyFy",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2004-12-08T00:00:00Z",
+    "temporadas": 4
+  },
+  {
+    "nome": "Futurama",
+    "empresa": "FOX",
+    "genero": "Animação",
+    "dataLancamento": "1999-03-28T00:00:00Z",
+    "temporadas": 7
+  },
+  {
+    "nome": "Firefly",
+    "empresa": "FOX",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2002-09-20T00:00:00Z",
+    "temporadas": 1
+  },
+  {
+    "nome": "The X-Files",
+    "empresa": "FOX",
+    "genero": "Ficção Científica",
+    "dataLancamento": "1993-09-10T00:00:00Z",
+    "temporadas": 11
+  },
+  {
+    "nome": "Doctor Who",
+    "empresa": "BBC",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2005-03-26T00:00:00Z",
+    "temporadas": 13
+  },
+  {
+    "nome": "Avatar: The Last Airbender",
+    "empresa": "Nickelodeon",
+    "genero": "Animação",
+    "dataLancamento": "2005-02-21T00:00:00Z",
+    "temporadas": 3
+  },
+  {
+    "nome": "The Twilight Zone",
+    "empresa": "CBS",
+    "genero": "Ficção Científica",
+    "dataLancamento": "1959-10-02T00:00:00Z",
+    "temporadas": 5
+  },
+  {
+    "nome": "Battlestar Galactica",
+    "empresa": "SyFy",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2004-12-08T00:00:00Z",
+    "temporadas": 4
+  },
+  {
+    "nome": "Futurama",
+    "empresa": "FOX",
+    "genero": "Animação",
+    "dataLancamento": "1999-03-28T00:00:00Z",
+    "temporadas": 7
+  },
+  {
+    "nome": "Firefly",
+    "empresa": "FOX",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2002-09-20T00:00:00Z",
+    "temporadas": 1
+  },
+  {
+    "nome": "The X-Files",
+    "empresa": "FOX",
+    "genero": "Ficção Científica",
+    "dataLancamento": "1993-09-10T00:00:00Z",
+    "temporadas": 11
+  },
+  {
+    "nome": "Doctor Who",
+    "empresa": "BBC",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2005-03-26T00:00:00Z",
+    "temporadas": 13
+  },
+  {
+    "nome": "Avatar: The Last Airbender",
+    "empresa": "Nickelodeon",
+    "genero": "Animação",
+    "dataLancamento": "2005-02-21T00:00:00Z",
+    "temporadas": 3
+  },
+  {
+    "nome": "The Twilight Zone",
+    "empresa": "CBS",
+    "genero": "Ficção Científica",
+    "dataLancamento": "1959-10-02T00:00:00Z",
+    "temporadas": 5
+  },
+  {
+    "nome": "Battlestar Galactica",
+    "empresa": "SyFy",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2004-12-08T00:00:00Z",
+    "temporadas": 4
+  },
+  {
+    "nome": "Futurama",
+    "empresa": "FOX",
+    "genero": "Animação",
+    "dataLancamento": "1999-03-28T00:00:00Z",
+    "temporadas": 7
+  },
+  {
+    "nome": "Firefly",
+    "empresa": "FOX",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2002-09-20T00:00:00Z",
+    "temporadas": 1
+  },
+  {
+    "nome": "The X-Files",
+    "empresa": "FOX",
+    "genero": "Ficção Científica",
+    "dataLancamento": "1993-09-10T00:00:00Z",
+    "temporadas": 11
+  },
+  {
+    "nome": "Doctor Who",
+    "empresa": "BBC",
+    "genero": "Ficção Científica",
+    "dataLancamento": "2005-03-26T00:00:00Z",
+    "temporadas": 13
+  }
+]

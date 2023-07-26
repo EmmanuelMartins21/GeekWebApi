@@ -76,13 +76,21 @@ namespace GeekWebApi.Controllers
                     {
                         foreach (var b in books)
                         {
-                            bool livroJaExiste = allBooks.Any(livro => livro.Nome == b.Nome);
+                            bool bookExist = allBooks.Any(livro => livro == b);
 
-                            if (!livroJaExiste)
+                            if (!bookExist)
                             {
                                 _context.Livros.Add(b);
                                 _context.SaveChanges();
                             }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var b in books)
+                        {
+                            _context.Livros.Add(b);
+                            _context.SaveChanges();
                         }
                     }
 

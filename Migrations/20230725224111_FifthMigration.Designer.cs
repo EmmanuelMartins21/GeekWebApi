@@ -3,6 +3,7 @@ using System;
 using GeekWebApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeekWebApi.Migrations
 {
     [DbContext(typeof(GeekWebApiContext))]
-    partial class GeekWebApiContextModelSnapshot : ModelSnapshot
+    [Migration("20230725224111_FifthMigration")]
+    partial class FifthMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.9");
@@ -26,6 +29,9 @@ namespace GeekWebApi.Migrations
                     b.Property<DateTime>("DataLancamento")
                         .HasColumnType("TEXT");
 
+                    b.Property<float>("DuracaoMinutos")
+                        .HasColumnType("REAL");
+
                     b.Property<string>("Genero")
                         .IsRequired()
                         .HasColumnType("TEXT");
@@ -33,9 +39,6 @@ namespace GeekWebApi.Migrations
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("TEXT");
-
-                    b.Property<int>("Temporadas")
-                        .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
