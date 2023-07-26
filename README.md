@@ -72,6 +72,8 @@ Este endpoint retorna uma lista de Séries Geek, contendo informações como tí
   ]
 }
 ```
+### 4. Animes
+
 
 #### Endpoint: `/animes`
 
