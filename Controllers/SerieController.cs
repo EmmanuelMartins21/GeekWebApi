@@ -2,37 +2,39 @@
 using GeekWebApi.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using static System.Reflection.Metadata.BlobBuilder;
 
 namespace GeekWebApi.Controllers
 {
     [ApiController]
-    [Route("controller/books")]
-    public class LivroController : Controller
+    [Route("controller/serie")]
+    public class SerieController : Controller
     {
         private ILogger<FilmeController> _logger;
         private readonly GeekWebApiContext _context;
 
-        public LivroController(ILogger<FilmeController> logger, GeekWebApiContext context)
+        public SerieController(ILogger<FilmeController> logger, GeekWebApiContext context)
         {
             _logger = logger;
             _context = context;
         }
 
-        [HttpGet("getallbooks")]
-        public ActionResult<IEnumerable<Livro>> GetAlBooks()
-        {
-            var allBooks = _context.Livros.ToList();
-            if (allBooks.Count == 0) return NotFound();
 
-            return Ok(allBooks);
+        [HttpGet("getallseries")]
+        public ActionResult<IEnumerable<Serie>> GetAllSeries()
+        {
+            var allSeries = _context.Series.ToList();
+            if (allSeries.Count == 0) return NotFound();
+
+            return Ok(allSeries);
         }
 
-        [HttpGet("getbooksbyname")]
-        public ActionResult<IEnumerable<Filme>> GetBooksByName(string name)
+        [HttpGet("getseriesbyname")]
+        public ActionResult<IEnumerable<Serie>> GetSeriesByName(string name)
         {
             try
             {
-                var movies = _context.Livros
+                var movies = _context.Series
                     .Where(m => m.Nome.ToLower().Contains(name.ToLower()));
 
                 if (movies == null) return NotFound();
@@ -45,13 +47,13 @@ namespace GeekWebApi.Controllers
             }
         }
 
-        [HttpGet("getbooksbyeditora")]
-        public ActionResult<IEnumerable<Filme>> GetBooksByEditora(string editora)
+        [HttpGet("getbooksbyempresa")]
+        public ActionResult<IEnumerable<Serie>> GetBooksByEmpresa(string empresa)
         {
             try
             {
-                var movies = _context.Livros
-                    .Where(m => m.Editora.ToLower().Contains(editora.ToLower()));
+                var movies = _context.Series
+                    .Where(m => m.Empresa.ToLower().Contains(empresa.ToLower()));
 
                 if (movies == null) return NotFound();
 
@@ -62,42 +64,43 @@ namespace GeekWebApi.Controllers
                 return NotFound();
             }
         }
+               
 
-        [Authorize]
-        [HttpPost("postbooks")]
-        public ActionResult<IEnumerable<Livro>> PostBooks(List<Livro> books)
+        [Authorize]        
+        [HttpPost("postseries")]
+        public ActionResult<IEnumerable<Serie>> Postseries(List<Serie> series)
         {
             try
             {
-                if (books.Count > 0)
+                if (series.Count > 0)
                 {
-                    var allBooks = _context.Livros.ToList();
-                    if (allBooks.Count != 0)
+                    var allSeries = _context.Series.ToList();
+                    if (allSeries.Count != 0)
                     {
-                        foreach (var b in books)
+                        foreach (var s in series)
                         {
-                            bool bookExist = allBooks.Any(livro => livro == b);
+                            bool serieExist = allSeries.Any(series => series == s);
 
-                            if (!bookExist)
+                            if (!serieExist)
                             {
-                                _context.Livros.Add(b);
+                                _context.Series.Add(s);
                                 _context.SaveChanges();
                             }
                         }
                     }
                     else
                     {
-                        foreach (var b in books)
+                        foreach (var s in series)
                         {
-                            _context.Livros.Add(b);
+                            _context.Series.Add(s);
                             _context.SaveChanges();
                         }
                     }
-
                     _logger.LogInformation($"POST /Livros cadastrados com Sucesso");
+                    _context.SaveChanges();
                 }
 
-                return CreatedAtAction(nameof(GetAlBooks), new { books }, books);
+                return CreatedAtAction(nameof(GetAllSeries), new { series }, series);
             }
             catch (Exception ex)
             {

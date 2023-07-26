@@ -2,12 +2,12 @@
 
 namespace GeekWebApi.Models
 {
-    public class Serie
+    public class Anime
     {
-        public Serie(string nome, string empresa, string genero, DateTime dataLancamento, int temporadas)
+        
+        public Anime(string nome, string genero, DateTime dataLancamento, int temporadas)
         {
             Nome = nome;
-            Empresa = empresa;
             Genero = genero;
             DataLancamento = dataLancamento;
             Temporadas = temporadas;
@@ -16,10 +16,13 @@ namespace GeekWebApi.Models
         [Key]
         public int Id { get; set; }
         public string Nome { get; set; }
-        public string Empresa { get; set; }
+
         public string Genero { get; set; }
+
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime DataLancamento { get; set; }
         public int Temporadas { get; set; }
+
+
     }
 }

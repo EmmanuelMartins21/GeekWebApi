@@ -3,6 +3,7 @@ using System;
 using GeekWebApi.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,37 +11,14 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GeekWebApi.Migrations
 {
     [DbContext(typeof(GeekWebApiContext))]
-    partial class GeekWebApiContextModelSnapshot : ModelSnapshot
+    [Migration("20230722133212_SecondMigration")]
+    partial class SecondMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.9");
-
-            modelBuilder.Entity("GeekWebApi.Models.Anime", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("DataLancamento")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Genero")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Nome")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Temporadas")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Animes");
-                });
 
             modelBuilder.Entity("GeekWebApi.Models.Filme", b =>
                 {
@@ -55,10 +33,6 @@ namespace GeekWebApi.Migrations
                         .HasColumnType("REAL");
 
                     b.Property<string>("Empresa")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Genero")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -81,10 +55,6 @@ namespace GeekWebApi.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Editora")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Genero")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -113,16 +83,12 @@ namespace GeekWebApi.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Genero")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Temporadas")
-                        .HasColumnType("INTEGER");
+                    b.Property<float>("Temporadas")
+                        .HasColumnType("REAL");
 
                     b.HasKey("Id");
 
