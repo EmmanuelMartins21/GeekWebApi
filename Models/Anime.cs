@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace GeekWebApi.Models
 {
@@ -14,6 +15,7 @@ namespace GeekWebApi.Models
         }
 
         [Key]
+        [JsonIgnore]
         public int Id { get; set; }
         public string Nome { get; set; }
 
